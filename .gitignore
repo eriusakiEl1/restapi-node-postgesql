@@ -1,0 +1,13 @@
+# Directorio de dependencias
+node_modules/
+
+# Archivos de compilación o distribución
+dist/
+build/
+
+# Archivos de configuración específicos del entorno
+.env
+config.json
+
+# Archivos de sistema
+.DS_Store
