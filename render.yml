@@ -1,0 +1,40 @@
+# Especifica el servicio de Node.js
+services:
+  - type: web
+    env: node
+    # Especifica la región donde se desplegará el servicio
+    region: oregon 
+    # Especifica el plan de hosting (gratuito o pago)
+    plan: free
+    # Configuración de construcción
+    build:
+      # Especifica el comando para instalar dependencias
+      installCommand: npm install
+      # Especifica el comando para construir el proyecto (si es necesario)
+      buildCommand: npm run build
+      # Especifica el directorio donde se encuentra el código fuente
+      workingDir: ./
+
+    # Configuración de inicio
+    startCommand: npm start
+    # Especifica el comando para el modo desarrollo (opcional)
+    developmentCommand: npm run dev
+    # Especifica el directorio donde se encuentra el código fuente
+    workingDir: ./
+
+    # Configuración de enrutamiento
+    routes:
+      # Ruta para acceder a la aplicación
+      - path: /
+        # Ruta del archivo estático (si es necesario)
+        staticDir: dist
+
+    # Configuración de variables de entorno
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+# Configuración de bases de datos (si es necesario)
+databases:
+  - type: redis
+    plan: free
